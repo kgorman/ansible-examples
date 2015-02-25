@@ -1,0 +1,8 @@
+---
+- name: Prep environ for Clustrix
+  hosts: raxhosts
+  user: root
+  tasks:
+    - filesystem: fstype=ext4 dev=/dev/xvde1
+    - file: path=/data state=directory
+    - mount: name=/data src=/dev/xvde1 fstype=ext4 state=present

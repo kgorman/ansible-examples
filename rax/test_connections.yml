@@ -1,0 +1,6 @@
+---
+- name: Testing
+  hosts: raxhosts
+  user: root
+  tasks:
+    - shell: echo 'cool'

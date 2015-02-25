@@ -1,0 +1,34 @@
+---
+
+- name: Build up a test environment
+  hosts: localhost
+  gather_facts: False
+  user: root
+  connection: local
+  tasks:
+    - name: Server build requests
+      local_action:
+            module: rax
+            credentials: ~/.rackspace_cloud_credentials
+            name: test_server%03d
+            flavor: io1-30
+            image: 4f465d85-4512-44a9-9301-0412f0928f8b
+            state: present
+            count: 10
+            files:
+                /root/.ssh/authorized_keys: /Users/kenn6001/.ssh/id_rsa.pub
+            count_offset: 1
+            exact_count: yes
+            group: raxhosts
+            wait: yes
+      register: rax
+
+    - name: Add the instances we created (by public IP) to the group 'raxhosts'
+      local_action:
+        module: add_host
+        hostname: "{{ item.name }}"
+        ansible_ssh_host: "{{ item.rax_accessipv4 }}"
+        ansible_ssh_pass: "{{ item.rax_adminpass }}"
+        groupname: raxhosts
+      with_items: rax.success
+      when: rax.action == 'create'
