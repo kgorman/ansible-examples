@@ -16,7 +16,7 @@
             state: present
             count: 10
             files:
-                /root/.ssh/authorized_keys: /Users/kenn6001/.ssh/id_rsa.pub
+                /root/.ssh/authorized_keys: ~/.ssh/id_rsa.pub
             count_offset: 1
             exact_count: yes
             group: raxhosts
