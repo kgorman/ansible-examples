@@ -1,5 +1,5 @@
 ---
-- name: Prep environ for Clustrix
+- name: Setup environment
   hosts: raxhosts
   user: root
   tasks:
