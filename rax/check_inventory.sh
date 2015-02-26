@@ -1,1 +1,1 @@
-ansible all -i inventory/hosts.txt -m setup
+ansible all -i inventory/rax.py -m setup
