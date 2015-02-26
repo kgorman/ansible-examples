@@ -2,7 +2,7 @@
 
 This is a sample configuration for using the Rackspace Ansible module, rax.py and dynamic inventory.
 
-This example configures (10) high I/O servers and formats a /data partition for usage for, say, a database application.
+This example configures (10) high I/O servers with CentOS6 and formats a /data partition for usage for, say, a database application.
 
 ### Requirements
 
