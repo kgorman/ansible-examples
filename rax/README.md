@@ -39,7 +39,9 @@ $>./test_connections.sh
 
 #### Running playbooks against the dynamic inventory
 
-This is the spot where changes can be made to install and configure all the hosts. Change setup_hosts.yml to perform whatever actions required. Some simple formatting of the filesystem is included.
+This is the spot where changes can be made to install and configure all the hosts. Change setup_hosts.yml to perform whatever actions required. In this case Ansible gets the list of hosts generated in the provisioning step and performs the action(s) on all of them. There is no need for a traditional hosts file using this method.
+
+Simple formatting of the filesystem is included.
 
 ```bash
 $>./setup_hosts.sh
